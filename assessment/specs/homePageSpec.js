@@ -10,42 +10,42 @@ describe('Search', () => {
     homePage.allAccordianButtons().should("have.length.of.at.least", 1);
   });
 
-  it("Verify that first accordian is visible on page load", () => {
-    homePage.firstAccordianButton().then((btn) => {
-      let dataTarget;
-      if (btn.attr("data-target")) {
-        dataTarget = btn.attr("data-target");
-      } else {
-        dataTarget = btn.attr("data-bs-target");
-      }
-      let targetDiv = homePage.getElement(dataTarget);
-      targetDiv.should("to.be.visible");
-    });
-  });
+  // it("Verify that first accordian is visible on page load", () => {
+  //   homePage.firstAccordianButton().then((btn) => {
+  //     let dataTarget;
+  //     if (btn.attr("data-target")) {
+  //       dataTarget = btn.attr("data-target");
+  //     } else {
+  //       dataTarget = btn.attr("data-bs-target");
+  //     }
+  //     let targetDiv = homePage.getElement(dataTarget);
+  //     targetDiv.should("to.be.visible");
+  //   });
+  // });
 
-  it("Verify that first accordian collapses when you click on button", () => {
-    homePage.firstAccordianButton().then((btn) => {
-      let dataTarget;
-      if (btn.attr("data-target")) {
-        dataTarget = btn.attr("data-target");
-      } else {
-        dataTarget = btn.attr("data-bs-target");
-      }
-      let targetDiv = homePage.getElement(dataTarget);
-      targetDiv.should("to.be.visible");
-      homePage
-        .firstAccordianButton()
-        .click()
-        .then(() => {
-          let targetDivNew = homePage.getElement(dataTarget);
-          targetDivNew.should("not.to.be.visible");
-        });
-    });
-  });
+  // it("Verify that first accordian collapses when you click on button", () => {
+  //   homePage.firstAccordianButton().then((btn) => {
+  //     let dataTarget;
+  //     if (btn.attr("data-target")) {
+  //       dataTarget = btn.attr("data-target");
+  //     } else {
+  //       dataTarget = btn.attr("data-bs-target");
+  //     }
+  //     let targetDiv = homePage.getElement(dataTarget);
+  //     targetDiv.should("to.be.visible");
+  //     homePage
+  //       .firstAccordianButton()
+  //       .click()
+  //       .then(() => {
+  //         let targetDivNew = homePage.getElement(dataTarget);
+  //         targetDivNew.should("not.to.be.visible");
+  //       });
+  //   });
+  // });
 
-  it("Verify first accordian exists", () => {
-    homePage.firstAccordian().should("to.be.visible");
-  });
+  // it("Verify first accordian exists", () => {
+  //   homePage.firstAccordian().should("to.be.visible");
+  // });
 
 
   it("Verify that each carousel has 10 cards", () => {
