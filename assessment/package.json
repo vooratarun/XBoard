@@ -6,8 +6,8 @@
   "scripts": {
     "cy": "cypress",
     "cy:open": "npm run cy open",
-    "test": "npm run cy run -- --config-file cypress.json",
-    "test-headed": "npm run cy run -- -q --headed --config-file cypress.json",
+    "test": "npm run cy run -- --config-file cypress.config.js",
+    "test-headed": "npm run cy run -- -q --headed --config-file cypress.config.js",
     "cy:headless": "npm run cy run -- -q",
     "ci": "npm run cy run -- -q"
   },
@@ -27,7 +27,7 @@
     "mocha-junit-reporter": "^2.0.0"
   },
   "dependencies": {
-    "cypress": "9.7.0",
+    "cypress": "^13.3.1",
     "http-server": "^0.12.3"
   }
 }
