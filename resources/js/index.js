@@ -67,20 +67,6 @@ async function addRSSFeedToDOM(magazines) {
 
   }
 
-  
-
-  
-
-
-  
-
-  
-
-
-
-  
-
-
 }
 
 addRSSFeedToDOM(magazines);
