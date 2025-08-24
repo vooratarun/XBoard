@@ -6,8 +6,8 @@
   "scripts": {
     "cy": "cypress",
     "cy:open": "npm run cy open",
-    "test": "npm run cy run -- --config-file cypressold.json",
-    "test-headed": "npm run cy run -- -q --headed --config-file cypressold.json",
+    "test": "npm run cy run",
+    "test-headed": "npm run cy run -- -q --headed --config-file cypress.json",
     "cy:headless": "npm run cy run -- -q",
     "ci": "npm run cy run -- -q"
   },
