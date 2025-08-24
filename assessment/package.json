@@ -7,7 +7,7 @@
     "cy": "cypress",
     "cy:open": "npm run cy open",
     "test": "npm run cy run",
-    "test-headed": "npm run cy run -- -q --headed",
+    "test-headed": "npm run cy run -- -q --headed --config-file cypress.json",
     "cy:headless": "npm run cy run -- -q",
     "ci": "npm run cy run -- -q"
   },
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "cypress": "^13.3.1",
-    "dotenv": "^17.2.1",
     "http-server": "^0.12.3"
   }
 }
