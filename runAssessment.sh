@@ -2,7 +2,7 @@
 # shopt -s expand_aliases
 # . ~/.bash_aliases
 
-# Override baseUrl in cypressold.json
+# Override baseUrl in cypress.json
 # https://docs.cypress.io/guides/references/configuration.html#Environment-Variables
 export CYPRESS_BASE_URL=http://localhost:8081
 
