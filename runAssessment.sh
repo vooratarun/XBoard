@@ -36,3 +36,4 @@ done
 # 3. Run assessment
 cd $PWD/assessment && npm install && npm run test
 pkill http-server
+
