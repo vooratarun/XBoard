@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "cypress": "^14.5.4",
     "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
   }
 }
