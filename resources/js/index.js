@@ -1,4 +1,11 @@
 // getRSSFeedFromURL , Implements method to get rss feed from given url in json format
+
+let magazines = [
+  "https://storage.googleapis.com/fullstack-assessment/coronavirus.rss",
+  "https://storage.googleapis.com/fullstack-assessment/india-tech.rss",
+  "https://storage.googleapis.com/fullstack-assessment/sports-star.rss",
+]
+
 async function getRSSFeedFromURL(url) {
   let count = parseInt(15 + (30 - 15) * Math.random());
   let conversionToJSONUrl =
