@@ -110,7 +110,7 @@ function addArticlesToAccordion(articles, feedBox, rank) {
     const time =d.toLocaleTimeString('en-In');
 
     const articleBox = document.createElement("div");
-    if (i == 0) {
+    if (i === 0) {
       // first image of carousel should be active
       articleBox.setAttribute("class", "card carousel-item active");
     } else {
