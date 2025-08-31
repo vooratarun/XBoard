@@ -21,82 +21,26 @@ async function getRSSFeedFromURL(url) {
   return feed;
 }
 
-// addRSSFeedToDOM()
-// function addRSSFeedToDOM(feed) , Implements a method to add given rss feed as input , to the dom container as
-// bootstrap5
-
-async function addRSSFeedToDOM(magazines) {
-  // to get the container for all the accordions inner element with id ='rssfeed'
-
-  const feedBox = document.getElementById("rssfeed");
-
-
-
-  for(let i  =0;i<magazines.length;i++){
-    const data = await getRSSFeedFromURL(magazines[i]);
-    const articles = data.items;
-    const rank = i;
-    const titleOfAccordion = data.feed.title;
-    
-    let showOnDOMContentLoaded = "";
-
-    if(i == 0){
-      showOnDOMContentLoaded = "show";
-    }
-    // rank stands for rank of inner accordion element
-    // create an accordion element
-
-    // pass node of accordion element to addArticlesToAccordion to add articles in each accordion
-
-    const accordionElement = document.createElement("div");
-    accordionElement.setAttribute("class", "accordion-item");
-    accordionElement.innerHTML = `
-    <h2 class="accordion-header" id="accordionHeading${rank}">
-      <button class="accordion-button text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${rank}" aria-expanded="true" aria-controls="collapse${rank}">
-        ${titleOfAccordion}
-      </button>
-    </h2>
-    <div id="collapse${rank}" class="accordion-collapse collapse ${showOnDOMContentLoaded}" aria-labelledby="accordionHeading${rank}" >
-      <div class="accordion-body" id="accordionBody${rank}">
-      </div>
-    </div>
-  `;
-
-
-  // append newly created accordion element to dom , in container with id rssfeed 
-
-    feedBox.append(accordionElement);
-
-    const accordionArticlesBox = document.getElementById(`accordionBody${rank}`);
-
-  
-    addArticlesToAccordion(articles, accordionArticlesBox, rank);
-
-  }
-
-}
-
-addRSSFeedToDOM(magazines);
-
-// addArticlesToAccordion(article) , Implements a method to add given article as input , to the dom container as carousel
-// add articles as a carousel
 
 function addArticlesToAccordion(articles, feedBox, rank) {
   // data is an array of article
   // create a carousel of articles
 
-  const carouselBox = document.createElement("div");
-  carouselBox.id = "carousel" + rank;
-  carouselBox.setAttribute("class", "carousel slide");
-  carouselBox.setAttribute("data-bs-ride", "carousel");
-  carouselBox.innerHTML = `
+  const carousel = document.createElement("div");
+  carousel.id = "carousel" + rank;
+  carousel.setAttribute("class", "carousel slide");
+  carousel.setAttribute("data-bs-ride", "carousel");
+  carousel.innerHTML = `
     <div class="carousel-inner" id="inner-carousel${rank}">
     
     </div>
+
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carousel${rank}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
+
   <button class="carousel-control-next" type="button" data-bs-target="#carousel${rank}" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
@@ -104,7 +48,7 @@ function addArticlesToAccordion(articles, feedBox, rank) {
   `;
 
   // add carousel Box to feed Box
-  feedBox.append(carouselBox);
+  feedBox.append(carousel);
 
   const innerCarouselBox = document.getElementById(`inner-carousel${rank}`);
 
@@ -140,3 +84,42 @@ function addArticlesToAccordion(articles, feedBox, rank) {
     innerCarouselBox.append(articleBox);
   }
 }
+
+async function addRSSFeedToDOM(magazines) {
+
+  const feedBox = document.getElementById("rssfeed");
+  for(let i = 0 ;i < magazines.length;i++){
+    const data = await getRSSFeedFromURL(magazines[i]);
+    const articles = data.items;
+    const rank = i;
+    const titleOfAccordion = data.feed.title;
+    
+    let showOnDOMContentLoaded = "";
+
+    if(i == 0){
+      showOnDOMContentLoaded = "show";
+    }
+   
+    const accordionElement = document.createElement("div");
+    accordionElement.setAttribute("class", "accordion-item");
+    accordionElement.innerHTML = `
+    <h2 class="accordion-header" id="accordionHeading${rank}">
+      <button class="accordion-button text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${rank}" aria-expanded="true" aria-controls="collapse${rank}">
+        ${titleOfAccordion}
+      </button>
+    </h2>
+    <div id="collapse${rank}" class="accordion-collapse collapse ${showOnDOMContentLoaded}" aria-labelledby="accordionHeading${rank}" >
+      <div class="accordion-body" id="accordionBody${rank}">
+      </div>
+    </div>
+  `;
+
+
+    feedBox.append(accordionElement);
+    const accordionArticlesBox = document.getElementById(`accordionBody${rank}`);
+    addArticlesToAccordion(articles, accordionArticlesBox, rank);
+
+  }
+}
+
+addRSSFeedToDOM(magazines);
