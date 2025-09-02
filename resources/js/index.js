@@ -23,7 +23,6 @@ async function getRSSFeedFromURL(url) {
 function addArticlesToAccordion(articles, feedBox, rank) {
   // data is an array of article
   // create a carousel of articles
-
   const carousel = document.createElement("div");
   carousel.id = "carousel" + rank;
   carousel.setAttribute("class", "carousel slide");
