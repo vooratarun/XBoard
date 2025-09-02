@@ -4,7 +4,7 @@
   "description": "Integration tests for XBoard git project",
   "main": "index.js",
   "scripts": {
-    "cy": "cypress",
+    "cy": "cypress --config-file cypress.config.js",
     "cy:open": "npm run cy open",
     "test": "npm run cy run --config-file cypress.config.js",
     "test-headed": "npm run cy run -- -q --config-file cypress.config.js",
