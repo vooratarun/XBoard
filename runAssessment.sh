@@ -34,6 +34,6 @@ while ! netstat -tna | grep 'LISTEN\>' | grep -q $FE_PORT; do
 done
 
 # 3. Run assessment
-cd $PWD/assessment && npm install && npm run test-headed
+cd $PWD/assessment && npm install && npm run test
 pkill http-server
 
