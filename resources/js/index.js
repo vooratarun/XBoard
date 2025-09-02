@@ -20,7 +20,6 @@ async function getRSSFeedFromURL(url) {
   // console.log(feed);
   return feed;
 }
-
 function addArticlesToAccordion(articles, feedBox, rank) {
   // data is an array of article
   // create a carousel of articles
